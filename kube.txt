@@ -1,0 +1,10 @@
+kubeadm join 10.0.1.28:6443 --token adwk1y.8vv67c2iwfsaa2fh --discovery-token-ca-cert-hash sha256:8c1d6d7bd713cf695d3576016897b61e50a18499279aa1d5f127171cfa1576f7
+
+installation docker website
+---------------------------
+get docker.com
+
+
+insatallation kubernetes website
+------------------------------
+http://alexander.holibreich.org/kuburnetes-on-ubuntu/
