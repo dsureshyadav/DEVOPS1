@@ -1,0 +1,19 @@
+              LOAD BALANCER CREATION
+===========================================
+1ST -LB1 EC2 INSTANCE
+2ND -LB2 EC2 INSTANCE  CREATE THOSE.
+ VI /VAR/WWW/HTML/INDEX.HTML
+ THIS IS SOMETHING :wq!
+
+service httpd restart cheyali
+service httpd status 
+go to the browser and copy those ip address in addressbar:80 execute it
+
+
+go to Load balancer and create load balancer there you need to check instances tab it will appear 2 in services then it ok
+
+otherwise refresh it and check once again 
+otherwise it will fail
+
+if ok-- copy the DNS name paste in browser and refresh it you will get response from two are lb1 and lb2 ec2 instances.
+

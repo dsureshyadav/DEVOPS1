@@ -1,0 +1,203 @@
+             kubernetes documentation
+--------------------------------------
+kuburnetes master -server
+kubernetes nodes like node1 & node2 if you want to create replicas(pods) by using this cmd
+
+1)kubectl run kelly --image=nginx --port 80 --replicas=2 ==deployment is created now your service also ready
+----------------------------------------------------------------------------------------------------------
+
+Installation of kuburnetes steps
+---------------------------------
+   kube-master
+------------------
+
+ a)vi /etc/hostname
+
+  kube-master
+:wq!
+b)hostname kube-master
+c)exec bash
+now you are in kube-master and same as in nodes also.
+
+1)install dockers in the system by using cmds from  get dockers.com
+  a) curl -fsSL get.docker.com -o get-docker.sh
+  b)sh get-docker.sh
+2)dockers ps and dockers --version and systemctl status docker
+
+3)install kuburnetes from http://alexander.holbreich.org/kubernetes-on-ubuntu or centos or redhat site 
+  from this site you can execute cmds one by one are
+a)apt-get update && apt-get install -y apt-transport-https   
+b)curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -  
+c)apt-get update -y
+d) apt-get install -y kubelet kubeadm kubernetes-cni
+
+e)initialising the cluster
+---------------------
+kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=127.0.0.1  token is generated save in notepad this token for future purpose.
+ kubernetes master has initialised successfully
+
+f) To start using  your cluster you need to run (as regular user)
+-----------------------------------------------------------------
+ a)  mkdir -p $HOME/.kube
+ b)  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ c)  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+g)apply flannel config just execute this cmd only
+kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml  
+
+NOTE:
+          NODE1 NODE2 INSTALLATION PROCESS
+--------------------------------------------------
+SAME AS IN NODES ALSO UPTO apt-get install -y kubelet kubeadm kubernetes-cni DO NOT REQUIRED INITIALIASTION PART IF YOU ARE DOING THIS THERE IS NO DIFF BN MASTER AND NODES
+NODES ARE BECOME MASTERS.
+
+
+
+SETTING CONFIGURE /etc/host file for communicating server with each node
+----------------------------------------------------------------------
+in kube-master 
+vi /etc/hostname
+  kube-master 
+private ip address of kube-master in aws meachine
+:wq!
+
+In nodes also
+vi /etc/hostname
+kube-node
+private ip address of kube-node in aws meachine 
+:wq!
+
+AFTER THIS YOU CAN EXECUTE WHAT YOU HAVE SAVED THE TOKEN THAT WILL BE EXECUTE IN MASTER.
+
+AFTER THIS IN KUBE-MASTER SECURITY GROUPS
+ALLTROFFIC PORTNO 8140 ANYWHERE
+SSH    ANYWHERE
+CUSTOMTCP  PORTNO 8140 ANYWHERE
+
+AND SAME AS NODES ALSO YOU CAN SET AS SECURITY GROUPS LIKE ABOVE. SETUP IS READY
+
+
+NOW YOU CAN CHECK THE COMMUNICATE MASTER WITH EACH NODE BY USING THIS CMDS
+--------------------------------------------------------------------------
+a)kubectl get nodes :
+if the nodes will display it is working otherwise not work please see the configuration /etc/hostfile and go to exec token in master.
+
+b)kubectl get pods -o wide : it will display each and every information about pods
+
+If you want to create pods(in docker called containers) use this cmd
+
+    kubectl run kube-master(any name) --image=nginx --port 80 --replicas=2
+    kubectl run kube-master(any name) --image=redis --port 6379 --replicas=2   here nginx and redis are services
+
+pods are created
+
+kubectl get pods -o wide: it will display each and every information about pod.
+-----------------------------------------------------------------------------------
+To check nginx successfully installed or not use this cmd
+
+apt-get update -y
+apt-get install curl
+
+  a) curl http://ipaddress of pod:port no 80(by default nginx port no 80)  if there is no curl installation you need to install the curl by use this cmd
+
+  b) service nginx status
+------------------------------------------
+
+If you want login to particular pod  you go for this cmd
+
+  a)kubectl exec -it pod name or pod id /bin/bash
+
+To check nginx install in pod or not use this cmd
+
+a) apt-get update -y
+b) apt-get install curl
+
+c) curl http://localhost:80) (from locally check it)
+
+exit:ctrl+pq(at a time)
+------------------------------------------------------
+If you want to delete pods podname or pod id  use this cmd (>1.5)
+---------------------------------------------------------------------
+  kubectl delete pods podname or pod id 
+when pod is deleted automatically another pod will be created to check it kubectl get pods -o wide here recently time will be appear.
+
+second time will be deleted it it is perminantely terminating
+
+If you want to forcibly deleted it use this cmd
+-----------------------------------------
+   kubectl delete pods<pod> --grace-period=0 --force
+
+
+  ADV OF KUBERNETES  IS AUTOSCALING WHEREAS DISADV OF DOCKERSWARM
+---------------------------------------------------------------
+  kubectl autoscale deployment kelly --cpu-percent=50 --min=4 --max=10
+
+
+
+       NAMESPACES
+---------------------
+  kubectl get namespaces
+
+  kubectl create namespace prod
+namespace is created
+
+check kubectl get namespaces
+
+if you want to create namespaces using yamlfile
+
+  kubectl --namespace=prod run nginx --image=nginx replicas=2
+  
+  vi namespaces.yml
+   api version: v1
+    kind:Namespace
+     metadata:
+      name: production
+:wq!
+
+   kubectl create -f ./name.yml
+  
+
+kubectl get namespaces
+
+
+i am going to create namespaces for particular production
+-------------------------------------------------------------
+  kubectl --namespace=production run kelly2 --image=redis --replicas=2
+
+  kubectl get pods --namespace=production
+
+  kubectl get deployments
+
+ kubectl yaml script from official docs kubernetes.io/docs/concepts/workloads/controller/deployment/
+
+  vi dep.yml
+
+  ApiVersion:apps
+     kind:Deployment
+labels:
+  app:httpd
+template:
+metadata:
+labels:
+app:httpd
+
+   kubectl create -f ./dep.yml
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

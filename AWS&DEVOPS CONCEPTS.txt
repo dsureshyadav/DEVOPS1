@@ -1,0 +1,72 @@
+   AWS CONCEPTS
+================
+1)ec2
+2)vpc
+3)s3
+4)rds
+5)sns
+6)cloudwatch
+7)iam
+8)cloundfront
+9)route53
+10)loadbalancers
+11)autoscaling
+12)glacier
+13)ebs
+14)lambda
+15)lightsail
+16)cloudformation
+17)sqs
+18)cloudtrail
+19)content delivery network
+20)
+
+
+1)network&related concepts(4services)
+-----------------------
+vpc,route 53,cloudfront
+
+2)storage concepts (2)
+--------------
+s3,glacier
+
+3) database concepts(2)
+--------------------
+  rds,dynamodb
+
+4) compute concepts (4services)
+-----------------
+ec2,lightsail,lambda,elastic bean stalk
+
+5) management tools (4services)
+----------------
+cloudwatch,autoscaling,cloudformation,cloudtrail
+
+6) security concepts (1 service)
+==============
+IAM ROLE
+
+7) build tool
+------------
+ cdn (content delivery network)
+
+total 18 services
+
+
+
+
+
+
+
+             DEVOPS CONCEPTS
+==============================
+
+1) CONTINUOUS MGMT : CHEF/ANSIBLE/PUPPET/YUM
+2) SCM  : GIT/SVN
+3) CLOUD : AWS/AZURE/OPENSTACK/SOFT
+4) CI  : JENKINS/BAMBOO
+5) CONTAINERS : DOCKERS/KUBERNETES
+6) BUILD : MAVEN/ANT
+7)MONITOR : NAGIOS/DATADOG/STACK DRIVER
+8) LOG : ELK/SPLUNK
+9) VAGRANT

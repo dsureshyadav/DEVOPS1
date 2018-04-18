@@ -1,0 +1,33 @@
+              SNS
+=========================
+GOTO TOPIC IS NOTHING BUT GROUP
+  CREATE TOPIC TAB==GIVE ANY NAME
+          DISPLAY NAME=ANY NAME
+GO TO SUBSCRIPTIONS IS NOTHING BUT USER IF SUBSCRIPE IT IN THE PROTOCOL TAB ==EMAIL, HTTP,EMAILJSON ETC ANY ONE SELECT YOU WILLGET MSG TO MAIL
+
+TOPIC ARN: arn:aws:sns:us-east-1 select it
+PROTOCOL :HTTP,EMAIL.EMAILJSON if ypu want mail give the mail id and send the link to that mail id and click on it it will be approved
+ENDPOINT : SURESHYADAV.50@GMAIL.COM
+
+sns is created if you want to perform any action you can do like ec2,s3,rds,cloudformation etc..
+
+
+          CLOUD WATCH
+=======================
+IT IS MONITORING TOOL
+step 1: go to the cloudwatch service
+  Rules tab -service name = ec2,s3,cloudwatch etc..
+   event type :all events        targets:sns topic ,sqs queue,lamda function,codepipeline give the name here.
+
+functionality: whenever the ec2 instance is created the it will be notified to the sns that triggering notification will send particular mail id.
+ 
+
+
+
+ go to ec2 instance : status checks tab=in that create status checks alarm and there you will do some functionalites check on those what you want
+and save it.
+
+monitoring:cpu utilisation and network  performance you will give the condition
+status checks: if any stop and recover action you will select it and save it the cloud watch is done.
+
+
