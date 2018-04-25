@@ -1,0 +1,29 @@
+        INTEGRATION JENKINS WITH WEBHOOKS BY GIT(AUTOMATICALLY GET FROM GIT TO AND PUSH IT BUILD IT)
+========================================================================================================
+
+ STEP 1: TAKE FREESTYLE PROJECT.
+ DON'T TAKE MAVEN PROJECT BECAUSE IT IS HAVING POM.XML FILE SO THAT TAKE FREESTYLE PROJECT ONLY GIT PATH YOU NEED TO GIVE
+AND SELECT ON GITHUB HOOK TRIGGER FOR GITSCM POLLING (IT WILL RECIVE FROM THE GITHUB REPOSITORY WHEN TRIGGER IS HAPPEND
+    CONFIGURE BUILD IT.
+
+ STEP 2: GOTO OUR OWN GITHUB REPOSITORY ->
+SETTING ->WEBHOOKS->
+HERE GIVE JENKINS URL UPTO PORTNO THEN GIVE NAME AS GITHUB-WEBHOOK.(EX:http://52.90.33.208:8080/github-webhook/) & save it
+
+STEP 3: Integration&services- >
+WHATEVER YOUR GIVEN in webhooks (ex:http://52.90.33.208:8080/github-webhook/)same as given here. save it
+
+
+
+Practice: your taking as another project don't do any modification while adding webhooks if already there otherwise added it because
+take that use it for multiple projects.
+
+
+JAVA INSTALLATION
+====================
+ TAKE ON INATANCE
+YUM UPDATE -Y
+YUM REMOVE JAVA (JAVA 7 VERSION)
+YUM INSTALL JAVA-1.8*
+
+
