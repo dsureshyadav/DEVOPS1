@@ -6,3 +6,5 @@ yum remove java version
 run yum install java-1.8*
 java installation is completed
 check java -version
+
+HE HAS GIVEN SOME INTERVIEW QUESTIONS ME THANKS ANNA.
