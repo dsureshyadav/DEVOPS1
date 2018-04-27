@@ -95,4 +95,50 @@ TO SEE THE PATH IN JENKINS SERVER
 
 THAT CRON JOB IS DONE.
 
-SAME AS
+SAME AS MAVEN PROJECT BY THROUGH WEBHOOKS VIA TOMCAT
+=======================================================
+FOR THIS TOMCAT YOU HAVE TO DO FIRST
+ STEP1: TOMCAT INSTALLATION BY GIVING RAMIREDDY DOCUMENTATION FOLLOW THOSE STEPS AS IT AS.
+
+STEP 2:CD BIN FOLDER ./START.SH   --CHMOD 777 ./START.SH FOR PERMISSION AND ./SHUTDOWN.SH SAME AS CHMOD 777 ./SHTDOWN.SH
+CHMOD 777 ./CATALINA.HOME 
+FINALLY ./START.SH START
+GO TO BROWSER give the ipaddress:8081
+tomcat started then go to manage app->here give the credintial and uname :admin  pwd: admin
+
+
+TAKE ONE EXAMPLE OF HELLOWORLD MAVEN SIMPLE IN GOOGLE AND 
+
+YOU CAN IMPORT FROM YOUR GIT HUB ACCOUNT AND THEN 
+POM.XML MODIFIED AND COMMITTED IT 
+THEN GO TO COPY THE ADDRESS GIVE IN JENKINS GIT AND SELECT ON GITHUB HOOK SCM POLLING THEN SAVE IT
+
+FINALLY IT WILL AUTOMATICALLY BUILD AND DEPLOY TO THE CONSOLE OUTPUT BY THROUGH WEBHOOKS.
+
+COMPLETED.
+
+
+JENKINS WITH JROG ARTIFACTORY
+===============================
+Take one new instance
+
+GOTO OFFICIAL SITE JFROG.COM/OPENSOURCE-->download zip file and get it by winscp to your linux system and unzip it
+
+cd bin
+ls
+run the cmd sh artifactoryctl start
+tomcat stated
+go to the browser http://given ipaddress:8081(default port no)
+
+it will open and setup admin credentials uname :admin
+                                         pwd:password1
+goto localrepository->select on maven project and give the name
+
+now go to jenkins server -> manage plugins ->available->search artifactory ->install it.- > and come to project ->configure ->postbuld actions->deploy to artifactory
+
+now jenkins home->manageplugins ->configure system->
+
+STEP 3
+
+  
+                
