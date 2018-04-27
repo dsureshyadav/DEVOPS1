@@ -136,7 +136,23 @@ goto localrepository->select on maven project and give the name
 
 now go to jenkins server -> manage plugins ->available->search artifactory ->install it.- > and come to project ->configure ->postbuld actions->deploy to artifactory
 
-now jenkins home->manageplugins ->configure system->
+finnow jenkins home->manageplugins ->configure system-> find add arifactory servers-> server id ->any name 
+                                                                                      URL ->//artifactory ip address :8081
+
+build it
+automatically it will updated here.
+
+completed jfrog
+=====================
+
+jenkins with cli and u want operate also from jenkins api 
+==========================================================
+
+FOR TEST QUALITY PURPOSE YOU WILL USE SONAR CUBE (SIR GIVEN URL FROM THERE GET IT AND PRACTICE IT)
+====================================================================================================
+
+DELIVERY PIPELINE
+=================================
 
 STEP 3
 
