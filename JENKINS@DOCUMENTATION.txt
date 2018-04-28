@@ -138,7 +138,10 @@ now go to jenkins server -> manage plugins ->available->search artifactory ->ins
 
 finnow jenkins home->manageplugins ->configure system-> find add arifactory servers-> server id ->any name 
                                                                                       URL ->//artifactory ip address :8081
+                                                                                       UNAME : admin	
+                                                                                      password:password1
 
+delivery to maven artifactory : include :**/*.war
 build it
 automatically it will updated here.
 
